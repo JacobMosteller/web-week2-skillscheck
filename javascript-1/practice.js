@@ -67,12 +67,15 @@ function iLove(name,love){
 const faveColors = ['red', 'green', 'black']
 
 //Code Here
+let colorCopy = faveColors.slice();
 
 //////////////////PROBLEM 9////////////////////
 
 // Add a fourth color to the end of the 'colorCopy' array using push
 
 //Code Here
+colorCopy.push('blue');
+
 
 //////////////////PROBLEM 10////////////////////
 
@@ -80,24 +83,50 @@ const faveColors = ['red', 'green', 'black']
 const numbers = [1, 2, 3, 4, 5]
 
 //Code Here
+const middleNums = numbers.slice(1,4);
 
 //////////////////PROBLEM 11////////////////////
 
 // Create an object called 'me' that has these keys with the correct values: firstName, state, age, greeter. firstName will be your name as a string. state will be your current state or providence as a string. age will be your age as a number. greeter will be a method that returns the string 'Hello! My name is NAMEVALUE and I live in STATEVALUE' with the correct values
 
 //Code Here
+const me = {
+	firstName: `Jacob`,
+	state: `Utah`,
+	age: 20,
+	greeter:function(){
+		return `Hello! My name is `+firstName+` and I live in `+state;
+	}
+}
 
 //////////////////PROBLEM 12////////////////////
 
 // Create a function called 'bigOrSmall' that takes in one parameter, arr. Create a new array inside of bigOrSmall called 'answers'. Loop over the passed in arr param. If the number is GREATER than 100, push 'big' as a string to the answers array. If the number is LESS than or EQUAL to 100, push 'small' as a string to the answers array. Return the answers array inside of the function
 
 // Code here
+function bigOrSmall(arr){
+	let answers = []
+	for(i=0;i<arr.length;i++){
+		if(arr[i]>100){
+			answers.push(`big`);
+		}
+		else{answers.push(`small`)}
+	}
+	return answers;
+}
 
 //////////////////PROBLEM 13////////////////////
 
 // Create a function called 'arrayReverser' that takes in one parameter, arr. Inside of arrayReverser, create an empty array called 'reversed'. Using a for loop, loop over the passed in array in reverse and add each item to the new reversed array. Finally, return the new reversed array
 
 //Code Here
+function arrayReverser(arr){
+	let reversed = []
+	for(i=arr.length-1;i>=0;i--){
+		reversed.push(arr[i]);
+	}
+	return reversed;
+}
 
 //////////////////PROBLEM 14 - 18 Setup////////////////////
 
@@ -110,24 +139,35 @@ const myNumbers = [3, 55, 788, 2, 1]
 // First, let's use .map to create a new array that doubles each number. Call the new array 'doubled'
 
 // Code Here
+const doubled = myNumbers.map((e,i)=>{return e*2;})
 
 //////////////////PROBLEM 15////////////////////
 
 // Now lets use .filter to only get the nubmer(s) greater than 100. Call the new array 'filtered'
 
 // Code Here
+const filtered = myNumbers.filter((e,i)=>{if(e>100){
+	return e;
+}})
 
 //////////////////PROBLEM 16////////////////////
 
 // Next up, reduce to get the total of the array. call the new array 'total'
 
 // Code Here
+const total = myNumbers.reduce((reducer,e,i)=>{reducer+= e;
+return reducer},0)
 
 //////////////////PROBLEM 17////////////////////
 
 // Last, lets use .forEach to find the index of each item in the array. First, create an empty array called myNumbersIndex. Next, using forEach, push each items index from the myNumbers array to the myNumbersIndex array
 
 // Code Here
+let myNumbersIndex = [];
+function getIndex(item,index,arr){
+	myNumbersIndex.push(index);
+}
+myNumbers.forEach(getIndex);
 
 //////////////////PROBLEM 18////////////////////
 
@@ -135,6 +175,7 @@ const myNumbers = [3, 55, 788, 2, 1]
 const notGeorge = ['Louis', 'Ted', 'Bill', 'Sharon', 'Mark', 'Angela']
 
 // Code Here
+const forTheLoveOfGeorge = notGeorge.map((e,i)=>{return e=`George`;})
 
 //////////////////PROBLEM 19////////////////////
 
@@ -149,9 +190,11 @@ const people = [
 ]
 
 // Code Here
-
+const enemies = people.filter((p)=>{return p.friend===false});
 //////////////////PROBLEM 20////////////////////
 
 // Using the people array above, let's get a total of the awesomeLevel from all the people. Call the new array 'totallyAwesome'. Use .reduce()
 
 // Code Here
+const totallyAwesome = people.reduce((reducer,e,i)=>{reducer += e.awesomeLevel;
+return reducer},0)
